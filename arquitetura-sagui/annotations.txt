@@ -1,0 +1,11 @@
+immediate is brzi, ji, movh and movl so expr is
+
+A * !D * (!C + BC) + !A * !B * !C * D
+
+jmp is jr and ji so
+
+B * !C * !D
+
+jmpz is brzi and brzr so
+
+!B * !C * !D
