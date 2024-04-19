@@ -409,6 +409,19 @@
     </comp>
     <comp lib="4" loc="(630,520)" name="ROM">
       <a name="appearance" val="logisim_evolution"/>
+      <a name="contents">addr/data: 8 8
+85 64 a0 1 60 88 20 60
+a0 12 60 81 13 0 32 60
+a0 81 64 a0 7f 91 a1 c1
+b1 d0 d0 64 e1 f1 8a 64
+7f 54 a5 44 8d 73 68 a0
+8a 6c 8c 73 c a0 46 8a
+98 42 94 56 a0 89 a8 81
+ac 8a 72 20 60 1 2 3
+4 5 6 7 8 9 a 1
+2 3 4 5 6 7 8 9
+a
+</a>
       <a name="label" val="MI"/>
       <a name="labelvisible" val="true"/>
     </comp>
