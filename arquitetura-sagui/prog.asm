@@ -69,7 +69,7 @@
 	; Now everything is tested. Let's sum an array.
 	; The idea here will be to use the AWK script Copilot wrote for us to
 	; see the address of instructions and the arrays.
-	; This is very trick as we have only 4 registers.
+	; This is very tricky as we have only 4 registers.
 	;
 	; r3 -> iterator.
 	; r2 -> array1 (61, 0x3d). The other one is 10 bytes ahead.
