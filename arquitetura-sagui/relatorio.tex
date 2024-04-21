@@ -134,17 +134,17 @@ Para testar a implementação, um programa em linguagem Assembly foi criado. Par
 carregá-lo na máquina, gerou-se um arquivo com as instruções montadas
 utilizando-se a funcionalidade de \textit{dump} do emulador
 EGG\footnote{\url{https://github.com/gboncoffee/egg}}. O programa é distribuído
-junto à implementação e esse documento, com o nome de "prog.asm". Junto deles,
-está o arquivo com as instruções montadas, no nome de "prog". Uma memória de
-dados de exemplo para teste está com o nome de "mem".
+junto à implementação e esse documento, com o nome de "prog.txt"\footnote{A
+entrega somente permitia arquivos de extensão \textit{.circ}, \textit{.txt} e
+\textit{.pdf}. Portanto os \textit{.asm} e \textit{.awk} foram renomeados.}.
 
 Como o montador do emulador utilizado não corrige as etiquetas, visto que a
 maioria dos saltos precisa ser realizada a partir de registradores com
 endereços, carregados via duas instruções \textit{movl} e \textit{movh}, todos
 os endereços foram computados manualmente. Para facilitar a tarefa, um script em
-linguagem AWK foi criado (distribuído com o nome de "addr.awk"). Qualquer
+linguagem AWK foi criado (distribuído com o nome de "addr.txt"). Qualquer
 sistema UNIX com uma implementação compatível da linguagem pode executá-lo. Para
-tal, usa-se a seguinte linha de comando: \verb=cat prog.asm | awk -f addr.awk=.
+tal, usa-se a seguinte linha de comando: \verb=cat prog.txt | awk -f addr.txt=.
 
 Para iniciar a máquina, primeiro deve-se inserir instruções sem efeito colateral
 no \textit{pipeline}. Para isso, liga-se o modo "Reset Pipeline" com o botão
