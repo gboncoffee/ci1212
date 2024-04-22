@@ -130,13 +130,13 @@ colateral são salvos com um valor conveniente, através de um multiplexador.
 
 \section{Programa de teste}
 
-Para testar a implementação, um programa em linguagem Assembly foi criado. Para
-carregá-lo na máquina, gerou-se um arquivo com as instruções montadas
+Para testar a implementação, dois programas em linguagem Assembly foram criados.
+Para carregá-los na máquina, geraram-se dois arquivos com as instruções montadas
 utilizando-se a funcionalidade de \textit{dump} do emulador
-EGG\footnote{\url{https://github.com/gboncoffee/egg}}. O programa é distribuído
-junto à implementação e esse documento, com o nome de "prog.txt"\footnote{A
-entrega somente permitia arquivos de extensão \textit{.circ}, \textit{.txt} e
-\textit{.pdf}. Portanto os \textit{.asm} e \textit{.awk} foram renomeados.}.
+EGG\footnote{\url{https://github.com/gboncoffee/egg}}. Os programas são
+distribuídos junto à implementação e esse documento, com os nomes de "test.txt"
+e "soma-vetor.txt". Os respectivos arquivos para serem carregados no simulador
+são "test-bd.txt" e "soma-vetor-bd.txt".
 
 Como o montador do emulador utilizado não corrige as etiquetas, visto que a
 maioria dos saltos precisa ser realizada a partir de registradores com
@@ -144,7 +144,8 @@ endereços, carregados via duas instruções \textit{movl} e \textit{movh}, todo
 os endereços foram computados manualmente. Para facilitar a tarefa, um script em
 linguagem AWK foi criado (distribuído com o nome de "addr.txt"). Qualquer
 sistema UNIX com uma implementação compatível da linguagem pode executá-lo. Para
-tal, usa-se a seguinte linha de comando: \verb=cat prog.txt | awk -f addr.txt=.
+tal, usa-se a seguinte linha de comando:
+\verb=cat <arquivo assembly> | awk -f addr.txt=.
 
 Para iniciar a máquina, primeiro deve-se inserir instruções sem efeito colateral
 no \textit{pipeline}. Para isso, liga-se o modo "Reset Pipeline" com o botão
