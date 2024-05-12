@@ -1,0 +1,80 @@
+; Teste das instruções.
+; Para ser montado com o script saguisimdasm.exs.
+
+; Zera todos os registradores.
+sub r1, r1
+sub r2, r2
+sub r3, r3
+
+movh 0xf
+movl 0xa
+; r1 deve ser 0xfa.
+
+add r2, r1
+; r2 deve ser 0xfa.
+
+movh 0
+sub r2, r1
+; r2 deve ser 0xa.
+
+add r2, r1
+; r2 deve ser 0xfa.
+
+movl 0
+and r2, r1
+; r2 deve ser 0xf0.
+
+; Salto não deve ser tomado.
+brzr r1, r3
+
+; Salto deve ser tomado (instrução and deve ser pulada).
+sub r2, r2
+movl 0x1
+movh 0x1
+brzr r2, r1
+and r0, r0
+
+; Guarda o endereço 0 e valor 1 em r2 e r1 para o teste da memória.
+movl 1
+movh 0
+sub r2, r2
+st r1, r2
+ld r3, r2
+; r3 deve ser 1.
+
+;
+; Literalmente o mesmo teste porém vetorial.
+;
+
+v.sub r1, r1
+v.sub r2, r2
+v.sub r3, r3
+
+v.movh 0xf
+v.movl 0xa
+; r1 deve ser 0xfa.
+
+v.add r2, r1
+; r2 deve ser 0xfa.
+
+v.movh 0
+v.sub r2, r1
+; r2 deve ser 0xa.
+
+v.add r2, r1
+; r2 deve ser 0xfa.
+
+v.movl 0
+v.and r2, r1
+; r2 deve ser 0xf0.
+v.or r2, r1
+; r2 deve ser 0xfa novamente.
+
+; Para a memória, somamos o endereço com o id do núcleo vetorial.
+v.movl 1
+v.movh 0
+v.sub r2, r2
+v.add r2, r0
+v.st r1, r2
+v.ld r3, r2
+; r3 deve ser 1, e na memória deve ter [1,1,1,1] a partir do 0.
