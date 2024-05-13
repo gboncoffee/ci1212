@@ -82,6 +82,14 @@
     <comp lib="0" loc="(160,210)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>
+    <comp lib="0" loc="(1720,460)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1790,800)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="0" loc="(2000,500)" name="Splitter">
       <a name="appear" val="center"/>
       <a name="bit1" val="none"/>
@@ -105,6 +113,10 @@
       <a name="bit6" val="1"/>
       <a name="bit7" val="1"/>
       <a name="incoming" val="8"/>
+    </comp>
+    <comp lib="0" loc="(640,260)" name="Probe">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(640,420)" name="Splitter">
       <a name="appear" val="right"/>
@@ -307,6 +319,11 @@
     </comp>
     <comp lib="4" loc="(350,250)" name="ROM">
       <a name="appearance" val="logisim_evolution"/>
+      <a name="contents">addr/data: 8 8
+d5 da df c8 cc 55 5a 33
+49 21 36 79 9e d5 b4 c9
+cd 55 31 59 20 39 71
+</a>
       <a name="label" val="MI"/>
       <a name="labelvisible" val="true"/>
     </comp>
@@ -603,13 +620,15 @@
     <wire from="(1700,500)" to="(1760,500)"/>
     <wire from="(1700,520)" to="(1750,520)"/>
     <wire from="(1700,540)" to="(1740,540)"/>
-    <wire from="(1700,560)" to="(1760,560)"/>
+    <wire from="(1700,560)" to="(1720,560)"/>
     <wire from="(1700,580)" to="(1730,580)"/>
     <wire from="(1700,600)" to="(1720,600)"/>
     <wire from="(1700,620)" to="(2030,620)"/>
     <wire from="(1710,430)" to="(1710,770)"/>
     <wire from="(1710,430)" to="(2070,430)"/>
     <wire from="(1710,770)" to="(2210,770)"/>
+    <wire from="(1720,460)" to="(1720,560)"/>
+    <wire from="(1720,560)" to="(1760,560)"/>
     <wire from="(1720,600)" to="(1720,610)"/>
     <wire from="(1720,610)" to="(2020,610)"/>
     <wire from="(1730,580)" to="(1730,600)"/>
@@ -622,7 +641,7 @@
     <wire from="(1760,540)" to="(1760,560)"/>
     <wire from="(1780,1000)" to="(1820,1000)"/>
     <wire from="(1780,1020)" to="(1810,1020)"/>
-    <wire from="(1780,1040)" to="(1840,1040)"/>
+    <wire from="(1780,1040)" to="(1790,1040)"/>
     <wire from="(1780,1060)" to="(1800,1060)"/>
     <wire from="(1780,1080)" to="(1790,1080)"/>
     <wire from="(1780,1100)" to="(1780,1280)"/>
@@ -634,8 +653,10 @@
     <wire from="(1780,940)" to="(1880,940)"/>
     <wire from="(1780,960)" to="(1840,960)"/>
     <wire from="(1780,980)" to="(1830,980)"/>
+    <wire from="(1790,1040)" to="(1840,1040)"/>
     <wire from="(1790,1080)" to="(1790,1270)"/>
     <wire from="(1790,1270)" to="(2190,1270)"/>
+    <wire from="(1790,800)" to="(1790,1040)"/>
     <wire from="(1800,1060)" to="(1800,1260)"/>
     <wire from="(1800,1260)" to="(2180,1260)"/>
     <wire from="(1810,1020)" to="(1810,1250)"/>
@@ -962,6 +983,7 @@
     <wire from="(630,320)" to="(630,390)"/>
     <wire from="(630,390)" to="(630,400)"/>
     <wire from="(630,400)" to="(640,400)"/>
+    <wire from="(640,260)" to="(640,290)"/>
     <wire from="(640,290)" to="(640,330)"/>
     <wire from="(640,330)" to="(640,370)"/>
     <wire from="(640,400)" to="(640,420)"/>
@@ -1422,7 +1444,6 @@
     <comp lib="4" loc="(820,1080)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R2C"/>
-      <a name="showInTab" val="true"/>
       <a name="width" val="2"/>
     </comp>
     <comp lib="4" loc="(820,1210)" name="Register">
@@ -1433,7 +1454,6 @@
     <comp lib="4" loc="(820,1340)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R3C"/>
-      <a name="showInTab" val="true"/>
       <a name="width" val="2"/>
     </comp>
     <comp lib="4" loc="(820,690)" name="Register">
@@ -1444,7 +1464,6 @@
     <comp lib="4" loc="(820,820)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R1C"/>
-      <a name="showInTab" val="true"/>
       <a name="width" val="2"/>
     </comp>
     <comp lib="4" loc="(820,950)" name="Register">
@@ -2966,55 +2985,61 @@
     <comp lib="4" loc="(1030,1250)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R31"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1030,670)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R11"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1030,960)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R21"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1130,1250)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R32"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1130,670)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R12"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1130,960)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R22"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1230,1250)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R33"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1230,670)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R13"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(1230,960)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R23"/>
+      <a name="showInTab" val="true"/>
     </comp>
     <comp lib="4" loc="(820,1110)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R2C"/>
-      <a name="showInTab" val="true"/>
       <a name="width" val="2"/>
     </comp>
     <comp lib="4" loc="(820,1400)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R3C"/>
-      <a name="showInTab" val="true"/>
       <a name="width" val="2"/>
     </comp>
     <comp lib="4" loc="(820,820)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="R1C"/>
-      <a name="showInTab" val="true"/>
       <a name="width" val="2"/>
     </comp>
     <comp lib="4" loc="(930,1250)" name="Register">
@@ -3437,6 +3462,7 @@
     <wire from="(800,870)" to="(820,870)"/>
     <wire from="(810,1080)" to="(810,1180)"/>
     <wire from="(810,1080)" to="(930,1080)"/>
+    <wire from="(810,1180)" to="(810,1370)"/>
     <wire from="(810,1180)" to="(820,1180)"/>
     <wire from="(810,1370)" to="(810,1470)"/>
     <wire from="(810,1370)" to="(930,1370)"/>

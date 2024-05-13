@@ -15,12 +15,13 @@ add r2, r1
 
 movh 0
 sub r2, r1
-; r2 deve ser 0xa.
+; r2 deve ser 0xf0.
 
 add r2, r1
 ; r2 deve ser 0xfa.
 
 movl 0
+movh 0xf
 and r2, r1
 ; r2 deve ser 0xf0.
 
@@ -29,7 +30,7 @@ brzr r1, r3
 
 ; Salto deve ser tomado (instrução and deve ser pulada).
 sub r2, r2
-movl 0x1
+movl 0x2
 movh 0x1
 brzr r2, r1
 and r0, r0
@@ -59,14 +60,16 @@ v.add r2, r1
 
 v.movh 0
 v.sub r2, r1
-; r2 deve ser 0xa.
+; r2 deve ser 0xf0.
 
 v.add r2, r1
 ; r2 deve ser 0xfa.
 
 v.movl 0
+v.movh 0xf
 v.and r2, r1
 ; r2 deve ser 0xf0.
+v.movl 0xa
 v.or r2, r1
 ; r2 deve ser 0xfa novamente.
 
