@@ -18,7 +18,7 @@
 	add r1, r0		; -> v.
 	addi -2			; -> v.
 	srr r0, r1		; -> v.
-	addi -6			; -> v.
+	addi -5			; -> v.
 	st r0, r2
 
 	; Guarda 0 (índice do loop externo) em M[-1].
@@ -35,7 +35,7 @@ loop_e:
 	add r2, r0 		; -> fim_loop_e.
 	addi 2			; -> fim_loop_e.
 	srr r2, r0		; -> fim_loop_e.
-	addi 6  		; -> fim_loop_e.
+	addi 5  		; -> fim_loop_e.
 	sub r2, r0		; -> fim_loop_e.
 	; Calculamos (i - 7) para verificar se devemos encerrar o loop.
 	sub r0, r0
@@ -58,7 +58,7 @@ loop_i:
 	add r0, r0 		; -> fim_loop_i.
 	addi -8 		; -> fim_loop_i.
 	addi -8			; -> fim_loop_i.
-	addi -7			; -> fim_loop_i.
+	addi -6			; -> fim_loop_i.
 	add r2, r0 		; -> fim_loop_i.
 
 	; Calculamos !(j - 6) para verificar se devemos encerrar o loop.
@@ -85,13 +85,14 @@ loop_i:
 	ld r1, r1
 	ld r2, r2
 
-	; r3 = a < b
+	; r3 = a >= b
 	sub r3, r3
 	add r3, r1
 	sub r0, r0
 	addi 7
 	sub r3, r2
-	slr r3, r0
+	srr r3, r0
+	not r3, r3
 
 	; Carrega o alvo do salto em r0. Esse é feio porque não pode sujar
 	; outros registradores.
@@ -101,14 +102,14 @@ loop_i:
 	addi 7 			; -> maior_igual.
 	addi 7 			; -> maior_igual.
 	addi 6 			; -> maior_igual.
-	; Salta se a >= b, portanto não inverte os valores.
+	; Salta se a < b, portanto não inverte os valores.
 	brzr r3, r0
 
 	; Carrega novamente o índice em r3.
 	sub r0, r0
 	sub r3, r3
 	addi -2
-	add r3, r3
+	add r3, r0
 	ld r3, r3
 
 	; Carrega o endereço do vetor em r0.
