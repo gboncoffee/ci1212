@@ -14,11 +14,11 @@
 	; Guarda o endereço do vetor em M[-3].
 	addi -3
 	add r2, r0
-	addi 7 			; -> v.
+	addi 4 			; -> v.
 	add r1, r0		; -> v.
-	addi 1 			; -> v.
-	slr r0, r1		; -> v.
-	addi -7			; -> v.
+	addi -2			; -> v.
+	srr r0, r1		; -> v.
+	addi -6			; -> v.
 	st r0, r2
 
 	; Guarda 0 (índice do loop externo) em M[-1].
@@ -35,13 +35,12 @@ loop_e:
 	add r2, r0 		; -> fim_loop_e.
 	addi 2			; -> fim_loop_e.
 	srr r2, r0		; -> fim_loop_e.
-	addi 1  		; -> fim_loop_e.
+	addi 6  		; -> fim_loop_e.
 	sub r2, r0		; -> fim_loop_e.
-	; Calculamos !(i - 7) para verificar se devemos encerrar o loop.
+	; Calculamos (i - 7) para verificar se devemos encerrar o loop.
 	sub r0, r0
 	add r0, r1
 	addi -7
-	not r0, r0
 	brzr r0, r2
 	; Guarda 0 (índice do loop interno) em M[-2].
 	sub r1, r1
@@ -54,19 +53,18 @@ loop_i:
 	sub r2, r2
 	sub r0, r0
 
-	addi -1 		; -> fim_loop_i.
+	addi 4 			; -> fim_loop_i.
+	slr r0, r0 		; -> fim_loop_i.
+	add r0, r0 		; -> fim_loop_i.
+	addi -8 		; -> fim_loop_i.
+	addi -8			; -> fim_loop_i.
+	addi -7			; -> fim_loop_i.
 	add r2, r0 		; -> fim_loop_i.
-	addi 2 			; -> fim_loop_i.
-	srr r2, r0 		; -> fim_loop_i.
-	addi 7 			; -> fim_loop_i.
-	addi 7 			; -> fim_loop_i.
-	addi 3 			; -> fim_loop_i.
 
 	; Calculamos !(j - 6) para verificar se devemos encerrar o loop.
 	sub r0, r0
 	add r0, r1
 	addi -6
-	not r0, r0
 	brzr r0, r2
 
 	; Carrega o endereço do vetor em r3.
@@ -102,8 +100,7 @@ loop_i:
 	slr r0, r0		; -> maior_igual.
 	addi 7 			; -> maior_igual.
 	addi 7 			; -> maior_igual.
-	addi 7 			; -> maior_igual.
-	addi 4 			; -> maior_igual.
+	addi 6 			; -> maior_igual.
 	; Salta se a >= b, portanto não inverte os valores.
 	brzr r3, r0
 
@@ -144,7 +141,6 @@ maior_igual:
 	add r2, r0 		; -> loop_i.
 	addi 1  		; -> loop_i.
 	slr r0, r2 		; -> loop_i.
-	addi 2  		; -> loop_i.
 	sub r2, r2
 	add r2, r0
 	; Zeramos r0 para sempre fazer o salto.
