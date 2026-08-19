@@ -58,7 +58,7 @@ loop_i:
 	add r0, r0 		; -> fim_loop_i.
 	addi -8 		; -> fim_loop_i.
 	addi -8			; -> fim_loop_i.
-	addi -6			; -> fim_loop_i.
+	addi -8			; -> fim_loop_i.
 	add r2, r0 		; -> fim_loop_i.
 
 	; Calculamos !(j - 6) para verificar se devemos encerrar o loop.
@@ -76,14 +76,14 @@ loop_i:
 
 	; Carrega v[j] em r1 e v[j + 1] em r2.
 	sub r0, r0
-	sub r1, r1
 	sub r2, r2
+	add r2, r1
 	addi 1
 	add r2, r0
-	add r1, r3
 	add r2, r3
-	ld r1, r1
+	add r1, r3
 	ld r2, r2
+	ld r1, r1
 
 	; r3 = a >= b
 	sub r3, r3
@@ -101,7 +101,7 @@ loop_i:
 	slr r0, r0		; -> maior_igual.
 	addi 7 			; -> maior_igual.
 	addi 7 			; -> maior_igual.
-	addi 6 			; -> maior_igual.
+	addi 7 			; -> maior_igual.
 	; Salta se a < b, portanto não inverte os valores.
 	brzr r3, r0
 
@@ -125,13 +125,13 @@ loop_i:
 	st r1, r0
 
 maior_igual:
-	; Carrega o índice do loop interno, decrementa, salva e coloca em r1.
+	; Carrega o índice do loop interno, incrementa, salva e coloca em r1.
 	sub r0, r0
 	sub r1, r1
 	addi -2
 	add r1, r0
 	ld r0, r1
-	addi -1
+	addi 1
 	st r0, r1
 	sub r1, r1
 	add r1, r0
@@ -149,13 +149,13 @@ maior_igual:
 	brzr r0, r2
 
 fim_loop_i:
-	; Carrega o índice do loop externo, decrementa, salva e coloca em r1.
+	; Carrega o índice do loop externo, incrementa, salva e coloca em r1.
 	sub r1, r1
 	sub r0, r0
 	addi -1
 	add r1, r0
 	ld r0, r1
-	addi -1
+	addi 1
 	st r0, r1
 	sub r1, r1
 	add r1, r0
